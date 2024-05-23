@@ -1,11 +1,11 @@
-This is a unified test framework for mobile (iOS and Android) and web automation. This project showcases automation best practices using the following open source tools:
+This is a Java based Playwright Test Framework. It supports the following browsers: chromium (chrome, ms edge etc.), webkit (safari) and gecko (firefox).
+Tested with a playwright web suite (dev in progress). Fully tested with parallel runs on different browsers with multiple test cases
 
+    Playwright 1.43 or above
     TestNG
     Apache Maven
     Java 21 (can be used with any Java version starting with 8).
-    Appium 2.x or greater
-    Selenium 4.x or any newer version
-
+    
 To compile as a jar, mvn clean install
 
 The intent of this project is for illustrative purposes only. The code can be freely used and modified as needed.
