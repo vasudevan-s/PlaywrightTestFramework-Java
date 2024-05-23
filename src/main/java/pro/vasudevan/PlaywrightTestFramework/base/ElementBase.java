@@ -15,7 +15,7 @@ Created By: Vasudevan Sampath
 
  ElementBase.java has web element specific methods.
  Also, initializes object repository file (expects object.repo.properties under src/test/resources in your test suite).
- Use getLocatorByKey() to get a Locator object for a valid object id defined in the properties file
+ Use getLocatorRefByKey() to get a Locator object for a valid object id defined in the properties file
  and use getLocatorRef() method if direct reference is needed without storing in the properties file
  */
 public class ElementBase implements IPlaywrightTestConfig {
