@@ -25,17 +25,17 @@ public class ElementBase implements IPlaywrightTestConfig {
     protected static void initObjectRepo() throws Exception {
         final Properties properties = new Properties();
 
-        if (map.size() == 0) {
+        if (map.isEmpty()) {
             properties.load(new FileInputStream(new File(FileUtils.getFile("src", "test", "resources", "object.repo.properties").getAbsolutePath())));
             map = (Map) properties;    // map Properties (key/value pair) to a Hashmap
         }
     }
 
     public static Locator getLocatorRefByKey(String objectKey) {
-        return IPlaywrightTestConfig.getPageObject().locator(map.get(objectKey));
+        return IPlaywrightTestConfig.getPage().locator(map.get(objectKey));
     }
 
     public static Locator getLocatorRef(String objectId) {
-        return IPlaywrightTestConfig.getPageObject().locator(objectId);
+        return IPlaywrightTestConfig.getPage().locator(objectId);
     }
 }

@@ -6,7 +6,7 @@
 
   <groupId>pro.vasudevan</groupId>
   <artifactId>PlaywrightTestFramework</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
   <packaging>jar</packaging>
 
   <properties>
@@ -16,7 +16,6 @@
   </properties>
 
   <dependencies>
-    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
     <dependency>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-jar-plugin</artifactId>
@@ -30,21 +29,18 @@
       <version>3.2.5</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
     <dependency>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-compiler-plugin</artifactId>
       <version>3.13.0</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/com.microsoft.playwright/playwright -->
     <dependency>
       <groupId>com.microsoft.playwright</groupId>
       <artifactId>playwright</artifactId>
       <version>1.43.0</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.testng/testng -->
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>

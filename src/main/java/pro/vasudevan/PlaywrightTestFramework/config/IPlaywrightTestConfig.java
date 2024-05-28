@@ -28,56 +28,58 @@ public interface IPlaywrightTestConfig
                 playwrightThreadLocal.set(Playwright.create());
                 BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions();
                 launchOptions.headless = Boolean.valueOf(map.get("headless"));
-                launchOptions.slowMo = 1000.0;
+ //               launchOptions.slowMo = 1000.0;
                 launchOptions.args = Arrays.asList("--start-fullscreen"); // not working yet. Researching
-                browserThreadLocal.set(getPlaywrightObject().chromium().launch(launchOptions));
-                beowserContextThreadLocal.set(getBrowserObject().newContext());
-                pageThreadLocal.set(getBrowserContextObject().newPage());
+                browserThreadLocal.set(getPlaywright().chromium().launch(launchOptions));
+                beowserContextThreadLocal.set(getBrowser().newContext());
+                pageThreadLocal.set(getBrowserContext().newPage());
             }
             case Global.Webkit -> {
                 playwrightThreadLocal.set(Playwright.create());
                 BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions();
                 launchOptions.headless = Boolean.valueOf(map.get("headless"));
-                launchOptions.slowMo = 1000.0;
+ //               launchOptions.slowMo = 1000.0;
                 launchOptions.args = Arrays.asList("--start-fullscreen"); // not working yet. Researching
-                browserThreadLocal.set(getPlaywrightObject().webkit().launch(launchOptions));
-                beowserContextThreadLocal.set(getBrowserObject().newContext());
-                pageThreadLocal.set(getBrowserContextObject().newPage());
+                browserThreadLocal.set(getPlaywright().webkit().launch(launchOptions));
+                beowserContextThreadLocal.set(getBrowser().newContext());
+                pageThreadLocal.set(getBrowserContext().newPage());
             }
             case Global.Firefox -> {
                 playwrightThreadLocal.set(Playwright.create());
                 BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions();
                 launchOptions.headless = Boolean.valueOf(map.get("headless"));
-                launchOptions.slowMo = 1000.0;
+ //               launchOptions.slowMo = 1000.0;
                 launchOptions.args = Arrays.asList("--start-fullscreen"); // not working yet. Researching
-                browserThreadLocal.set(getPlaywrightObject().firefox().launch(launchOptions));
-                beowserContextThreadLocal.set(getBrowserObject().newContext());
-                pageThreadLocal.set(getBrowserContextObject().newPage());
+                browserThreadLocal.set(getPlaywright().firefox().launch(launchOptions));
+                beowserContextThreadLocal.set(getBrowser().newContext());
+                pageThreadLocal.set(getBrowserContext().newPage());
             }
         }
-        getPageObject().navigate(map.get("launchURL"));
+        getPage().navigate(map.get("launchURL"));
     }
 
-    static Playwright getPlaywrightObject() {
+    static Playwright getPlaywright() {
         return playwrightThreadLocal.get();
     }
 
-    static Browser getBrowserObject() {
+    static Browser getBrowser() {
         return browserThreadLocal.get();
     }
 
-    static BrowserContext getBrowserContextObject() {
+    static BrowserContext getBrowserContext() {
         return beowserContextThreadLocal.get();
     }
 
-    static Page getPageObject() {
+    static Page getPage() {
         return pageThreadLocal.get();
     }
 
     static void tearDown() {
-        if (getPlaywrightObject() != null) {
-            getPageObject().context().browser().close();
-            getPlaywrightObject().close();
+        if (getPlaywright() != null) {
+            getPage().close();
+            getBrowserContext().close();
+            getBrowser().close();
+            getPlaywright().close();
         }
     }
 }
