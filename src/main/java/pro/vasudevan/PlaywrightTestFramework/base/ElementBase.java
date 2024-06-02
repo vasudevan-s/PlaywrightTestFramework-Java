@@ -31,10 +31,16 @@ public class ElementBase implements IPlaywrightTestConfig {
         }
     }
 
+    public static String getValue(String propertyKey) {
+        return map.get(propertyKey);
+    }
+
+    @Deprecated
     public static Locator getLocatorRefByKey(String objectKey) {
         return IPlaywrightTestConfig.getPage().locator(map.get(objectKey));
     }
 
+    @Deprecated
     public static Locator getLocatorRef(String objectId) {
         return IPlaywrightTestConfig.getPage().locator(objectId);
     }
