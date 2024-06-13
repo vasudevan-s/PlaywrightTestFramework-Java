@@ -18,7 +18,7 @@ Created By: Vasudevan Sampath
  Use getLocatorRefByKey() to get a Locator object for a valid object id defined in the properties file
  and use getLocatorRef() method if direct reference is needed without storing in the properties file
  */
-public class ElementBase implements IPlaywrightTestConfig {
+public abstract class ElementBase implements IPlaywrightTestConfig {
 
     static Map<String, String> map = new HashMap<>();
 
