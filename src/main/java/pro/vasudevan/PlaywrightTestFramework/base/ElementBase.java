@@ -14,7 +14,7 @@ import java.util.Properties;
 Created By: Vasudevan Sampath
 
  ElementBase.java has web element specific methods.
- Also, initializes object repository file (expects object.repo.properties under src/test/resources in your test suite).
+ Also, initializes object repository file (expects app.repo.properties under src/test/resources in your test suite).
  Use getValue() to get a Locator reference string value defined in the properties file
  */
 public abstract class ElementBase implements IPlaywrightTestConfig {
@@ -25,7 +25,7 @@ public abstract class ElementBase implements IPlaywrightTestConfig {
         final Properties properties = new Properties();
 
         if (map.isEmpty()) {
-            properties.load(new FileInputStream(new File(FileUtils.getFile("src", "test", "resources", "object.repo.properties").getAbsolutePath())));
+            properties.load(new FileInputStream(new File(FileUtils.getFile("src", "test", "resources", "app.repo.properties").getAbsolutePath())));
             map = (Map) properties;    // map Properties (key/value pair) to a Hashmap
         }
     }
